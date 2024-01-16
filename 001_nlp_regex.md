@@ -1,5 +1,14 @@
 # Regex and ELZA
 
+We covered the following topics in order
+1. Regular Expressions
+2. Basic ELZA Understanding
+3. Text-Normalization
+   - Tokenization
+   - Lemmatization (Stemming)
+   - Sentence Segmentation
+4. Edit Distance
+
 "Basic Text Processing" presentation provides an overview of various regular expressions (regex) and their applications.
 
 1. **Regular Expressions Disjunctions**: 
