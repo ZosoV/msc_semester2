@@ -2,11 +2,11 @@
 We covered the following topics in order
 1. Regular Expressions
 2. Basic ELIZA Understanding
-3. Text-Normalization
+3. Words and Corpora
+4. Text-Normalization
    - Tokenization
    - Lemmatization (Stemming)
    - Sentence Segmentation
-4. Edit Distance
 
 # Regex and ELIZA
 
