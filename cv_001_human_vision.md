@@ -16,7 +16,7 @@
 
 ## **Retinal Processing**:
 
-The whole mechanism consists of three layers. In order, since the light is perceived, we have photoreceptor layer (rods and cones), bipolar layer, and ganglion cell layer (See [image]()).
+The whole mechanism consists of three layers. In order, since the light is perceived, we have photoreceptor layer (rods and cones), bipolar layer, and ganglion cell layer.
 
 - **Rods and Cones**: Two types of photoreceptors in the retina. Rods (~120 million) are **extremely sensitive** and respond to a single photon but have poor spatial resolution. Cones (~6 million) are active at higher light levels and **have higher resolution**.
 - **Receptive Field**: In the photoreceptor layer, it is the area on which light must fall for a neuron to be stimulated. Adjusted with the pinhole camera mechanism.
