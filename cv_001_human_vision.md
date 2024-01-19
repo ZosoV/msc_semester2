@@ -25,7 +25,8 @@ With a cell similar to a donut, **on-center** cells are stimulated when the cent
 - **Contrast**: is the differences in intensities between close pixels.
 
 ## **Visual Pathway**: 
-    - The visual pathway refers to the journey of visual information from the eye to the brain. It involves the transmission of vision-generated information by photoreceptors in the retina through the optic nerve, optic chiasm, optic tract, lateral geniculate nucleus (LGN), and finally to the primary visual cortex at the back of the brain.
+
+The visual pathway refers to the journey of visual information from the eye to the brain. It involves the transmission of vision-generated information by photoreceptors in the retina through the optic nerve, optic chiasm, optic tract, lateral geniculate nucleus (LGN), and finally to the primary visual cortex at the back of the brain.
 
 ## Summary Table
 
