@@ -3,7 +3,7 @@
 My notes for the second semester. Don't forget just try to write little but concise.
 
 ## Natural Language Processing
-1. Week 01: [Regex and ELIZA](nlp/001_nlp_regex.md) | [Words, Corpora, and Text Normalization](nlp/002_nlp_text_normalization.md)
+1. Week 01: [Regex and ELIZA](nlp/001_nlp_regex.md) | [Words, Corpora, and Text Normalization](nlp/002_nlp_text_normalization.md) | [Byte Pair Encoding and Edit Distance](nlp/003_nlp_byte_pair_edit_distance.md)
 
 
 ## Computer Vision

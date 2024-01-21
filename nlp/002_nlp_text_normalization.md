@@ -68,11 +68,6 @@ This involves converting raw text into a uniform format for NLP tasks.
 - **Final Step**: Applying rules for sentence segmentation based on the initial tokenization.
 - **Example**: Differentiating sentence-ending periods from those in abbreviations like "Inc." or "Dr."&#8203;``【oaicite:0】``&#8203;.
 
-## 3. Byte Pair Encoding (BPE)
-BPE is a method for automatic word tokenization.
-- Process involves merging the most frequent adjacent symbols in the text.
-- Continues until reaching a desired vocabulary size.
-- **Example**: For "low" and "lower", initial tokens are ["l", "o", "w", "e", "r"]. BPE might merge "e" and "r" to form "er".
 
 ### Summary Table
 

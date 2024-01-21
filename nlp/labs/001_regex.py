@@ -4,7 +4,8 @@ import re
 # in the input string as a list of strings (or tuples of strings if there are 
 # capturing groups), and it continues searching for all matches throughout the entire string
 
-# Question 1: Write regular expressions for the following languages.
+# QUESTION 1: 
+# Write regular expressions for the following languages.
 
 # 1. The set of all alphabetic strings
 pattern = r"\b[A-Za-z]+\b" # only words
@@ -34,7 +35,8 @@ matches = re.findall(pattern, corpus)
 print("Q1.3", matches)
 # ------------------------------------------------
 
-# Question 2Write regular expressions for the following languages. By “word”, we mean an 
+# QUESTION 2
+# Write regular expressions for the following languages. By “word”, we mean an 
 # alphabetic string separated from other words by whitespace, any relevant punctuation,
 # line breaks, and so forth.
 # 1. The set of all strings with two consecutive repeated words (e.g., “Humbert
@@ -117,7 +119,10 @@ else:
 
 
 # ----------------------------------
+# QUESTION 3
 # Implement an ELIZA-like program, using substitutions such as those described on
 # page 10. You might want to choose a different domain than a Rogerian psychologist,
 # although keep in mind that you would need a domain in which your program can
 # legitimately engage in a lot of simple repetition.
+    
+# TODO: But by understanding the substitution is enough
