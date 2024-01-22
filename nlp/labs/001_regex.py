@@ -1,5 +1,7 @@
 import re
 
+# Check your regex in regex101.com
+
 # NOTE: re.findall() returns all non-overlapping occurrences of the pattern 
 # in the input string as a list of strings (or tuples of strings if there are 
 # capturing groups), and it continues searching for all matches throughout the entire string
