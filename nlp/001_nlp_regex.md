@@ -38,7 +38,7 @@ It's important also to notice what we understand by **string**. In general, you 
    - Anchors like `^` and `$` are used to match the start and end of a line.
    - Example: `^[A-Z]` matches a line starting with an uppercase letter.
    - You can also use `\b` for word boundary and `\B` for non-word boundary. 
-   - A **word** for a regular expression is defined as any sequence of digits, underscores, or letters.
+   - A **word** for a regular expression context is defined as any sequence of digits, underscores, or letters.
 
 6. **Parentheses and Capture groups**
    - Enclosing a pattern in parentheses `( )` makes it act like a single character. In other words, parentheses capture groups.     
@@ -130,7 +130,7 @@ In summary, `^` and `$` anchors are used to specify the start and end of a line 
 ---
 
 ### Other things in Notes
-- False Positives and Fase Negatives
+- False Positives and Fase Negatives. There is a good example in the book.
 - Greedy and non-greedy matching
 - Special Chars as `\s` blank space
 - backslah used to referred to special char as `\n`, `\t` or `\*` (the ast).
