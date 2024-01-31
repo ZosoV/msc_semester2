@@ -4,9 +4,8 @@ My notes for the second semester. Don't forget just try to write little but conc
 
 ## TODOS:
 - [ ] Short editions to NLP notes 002, 003
-- [x] Ask questions to TA from Lab 02 NLP
-- [ ] Do computer vision notes 002
-- [ ] Answer Questions Lab 02 Computer vision
+- [ ] Do computer vision notes 002, 003, 004
+- [ ] Do NLP notes 005, 006
 
 ## Natural Language Processing
 1. Week 01: [Regex and ELIZA](nlp/001_nlp_regex.md) | [Words, Corpora, and Text Normalization](nlp/002_nlp_text_normalization.md) | [Byte Pair Encoding and Edit Distance](nlp/003_nlp_byte_pair_edit_distance.md)
