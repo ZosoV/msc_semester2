@@ -5,7 +5,7 @@
 
    - **Definition**: Computational vision refers to the endeavor of designing computer systems that can interpret visual information in a way similar to human vision. It involves the understanding and modeling of how visual perception works in humans and animals.
    - **Visual Perception**: Understanding what is where by looking. Vision is the process of discerning **what** is present in the world and **where** it is, based on images.
-   - **Vision models** aim to recover lost information, which can came from different sources of the world, such as geometric, material, temporall, illumanation, and symbolic properties.
+   - **Vision models** aim to recover lost information, which can came from different sources of the world, such as geometric, material, temporal, illumanation, and symbolic properties.
    - **Challenges**: Involves reversing the imaging process (a many-to-one mapping), coping with an imperfect imaging process, and dealing with discretized images of a continuous world. The complexity of this task is significant, with a large portion of the human brain dedicated to visual perception.
 
 ## **Biological Vision**

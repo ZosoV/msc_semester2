@@ -47,11 +47,11 @@ In the direction of the gradient check if the current pixel location is a local 
 - In the direction of the gradient, we will have prev_pixel -> current_pixel -> next_pixel. If the current pixel is greater than prev and next, then we keep it, otherwise 0.
 
 ### Hysteresis thresholding
-It is a process that consists in using two thresholds a high and low threshold. Normaly, the high threshold is the double of the low threshold.
+It is a process that consists of using two thresholds a high and low threshold. Normally, the high threshold is the double of the low threshold.
 
 - Process: 
     1. If the pixels are greater than the high threshold, mark them as an edge (strong edge)
-    2. If the pixels is between the low and high threshold, mark them as a maybe (maybe edge)
+    2. If the pixels are between the low and high threshold, mark them as a maybe (maybe edge)
     3. Starting from the strong edges, check proximal pixels in the direction of the gradient, and if the pixel is a maybe pixel.
         - mark it as an edge, if the neighbors are edges,
         - repeat the process until you don't find more edge neighbors.
