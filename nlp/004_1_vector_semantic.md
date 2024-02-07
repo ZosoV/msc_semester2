@@ -30,11 +30,44 @@ In sparse models each dimension corresponds to a word in the vocabulary V and ce
 - Raw frequencies are very skewed and not very discriminative (frequently used words like 'the' are not too informative).
 
 - Two sparse weightings are common: **tf-idf** and **PPMI**
-    - The **tf-idf** weighting which weights each cell by its **term frequency** and **inverse document frequency**
-        - use log to calculate tf and also 0 when is zero.
-    - **PPMI** (pointwise positive mutual information), which is most common for word-context matrices.
-        - TODO: 
 
+### tf-idf (term frequency-inverse document frequency)
+
+The **tf-idf** weighting which weights each cell by its **term frequency** and **inverse document frequency**
+
+- The **term frequency (tf)** corresponds to the frequency of the word $t$ in the document $d$.
+        $$\mathrm{tf}_{t, d}= \begin{cases}1+\log _{10} \operatorname{count}(t, d) & \text { if } \operatorname{count}(t, d)>0 \\ 0 & \text { otherwise }\end{cases}$$
+- The **inverse document frequency (idf)** corresponds to
+    - **df** is the number of documents in which term $t$ occurs, and wrt to the total number of documents $N$, we have.
+    $$\frac{\mathrm{df}_t}{N}$$ 
+    - If we aim to give a higher weight to words that occur only in a few documents, we can invert this term, as follows
+    $$\mathrm{idf}_t = \mathrm{log}_{10}\left(\frac{1}{\frac{\mathrm{df}_t}{N}}\right)$$
+    $$\mathrm{idf}_t = \mathrm{log}_{10}\left(\frac{N}{\mathrm{df}_t}\right)$$
+
+- Then, the weight associated to word $t$ in document $d$ is 
+$$w_{t,d} = \mathrm{tf}_{t,d} \times \mathrm{idf}_t$$
+
+### **PPMI** (pointwise positive mutual information)
+**PPMI** is most common for word-context matrices. It is a measure of how often two events $x$ and $y$ occur, compared with what we would expect (by chance) if they were independent. 
+
+$$\operatorname{PMI}(w, c)=\log _2 \frac{P(w, c)}{P(w) P(c)}$$
+
+Negative values allowed in $PMI$ can be unreliable unless our corpora are enormous. Then, we simplified by
+$$\operatorname{PPMI}(w, c)=\mathrm{max}\left(\log _2 \frac{P(w, c)}{P(w) P(c)}, 0\right)$$
+
+In practice,
+
+$$p_{i j}=\frac{f_{i j}}{\sum_{i=1}^W \sum_{j=1}^C f_{i j}}, \quad p_{i *}=\frac{\sum_{j=1}^C f_{i j}}{\sum_{i=1}^W \sum_{j=1}^C f_{i j}}, \quad p_{* j}=\frac{\sum_{i=1}^W f_{i j}}{\sum_{i=1}^W \sum_{j=1}^C f_{i j}}$$
+
+$$\mathrm{PPMI}_{i j}=\max \left(\log _2 \frac{p_{i j}}{p_{i *} p_{* j}}, 0\right)$$
+
+Notice rare words can have low frequencies, which can lead to a lower $P(c)$ and consequently to high PMI values. To avoid that we can use a power of $\alpha$
+
+$$\operatorname{PPMI}_\alpha(w, c)=\max \left(\log _2 \frac{P(w, c)}{P(w) P_\alpha(c)}, 0\right)$$
+
+$$P_\alpha(c)=\frac{\operatorname{count}(c)^\alpha}{\sum_c \operatorname{count}(c)^\alpha}$$
+
+where $P_\alpha(c) > P(c)$.
 
 ## Cosine for measuring similarity
 
