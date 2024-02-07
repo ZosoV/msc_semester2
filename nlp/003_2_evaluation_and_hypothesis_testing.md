@@ -48,7 +48,7 @@ Things to consider:
     - bootrap test
 
 ## Paired Boostrap Test
-The boostrap method is a method to create artificial test data sets from an observed test set in order to perform an non-parametric hypothesis testing.
+The boostrap method is a method to create artificial test data sets from an observed test set in order to perform a non-parametric hypothesis testing.
 
 - It consists in creating artificial test data sets by sampling randomly with replacement from a base (or reference) test data set. Under the assumption that the base sample is a representative of the population.
 

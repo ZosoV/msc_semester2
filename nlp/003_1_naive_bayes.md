@@ -17,5 +17,5 @@ are conditionally independent of each other given the class)
 - Note the Naive Bayes include logarithms to avoid computation underflow errors.
 - Note if a word in the test is not in the vocabulary, we just don't sum up over those words. The probability will only be log(prior(class)) if we don't have any word from the training in the test
 - Note when you are calculating by hand the denominator is always the same for each class
-
+- The likelihood (multiplication of different conditional) can be understood as a language model of unigrams given a condition -> Review the concept correctly TENGO MUCHO sueño
 
