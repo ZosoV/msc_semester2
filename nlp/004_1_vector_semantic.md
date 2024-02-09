@@ -1,4 +1,4 @@
-# Week 04: Vector Semantic
+# Week 04.1: Vector Semantic: Sparse Semantic Models (tf-idf and PMI)
 
 - A vector semantic is a model of word meaning, which allows us to draw inferences to address meaning-related tasks like question-answering or dialogue.
 

@@ -1,0 +1,1 @@
+# Week 04.2: Vector Semantics: Dense Semantic Models (Word2Vec)
