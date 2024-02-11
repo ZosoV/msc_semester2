@@ -37,14 +37,22 @@ Using `skimage.transform import hough_line, hough_line_peaks`
 
 
 ## Probabilistic Hough Transform (PHT)
+The Probabilistic Hough Transform aims to reduce the computation complexity while speeding the process without losing much accuracy.
 
-- PHT is 
+The idea is that by using a subset of the edge pixels, it is still possible to return a good approximation of the actual results. There are two ways to achieve that PHT and RHT.
 
-- By using probabilistic techniques, they reduce the computation complexity while speeding the process without losing much accuracy.
-- If multiple points in the image are collinear then their sinusoids in parameter space 
-will cross.
+1. Probabilistic Hough Transform (PHT) uses a random subsample of the pixel edges of size $k$, where the minimum $k$ used is well-defined for some tasks. Then, the same algorithm as before is executed but now uses this subset of pixel edges.
+2. Randomized Hough Transform (RHT) uses two random sampling edge pixels $p_1$, $p_2$ (extracted from the big set of edge pixels), and look through the rest of the edge pixels that pass through the line defined by $p_1$ and $p_2. 
+    - The line that passes through $p_1$ and $p_2$ is defined by $(m,b)$, where $m$ is the slope and $b$ the intercept.
+    - This is other way to perform the algorithm, which only needs to save a list of lines by $(m,b)$.
+    - This also needs to define a tolerance because there can be points that don't pass exactly through the line, but are close enough to be part of that line.
+    - This process is repeated by sampling several times 2 points.
 
+Both methods allow us to reduce the computational complexity, and still get good approximated results. However, they still are only finding lines and not proper segments.
 
+### Progressive Probabilistic Hough Transform (PPHT)
 
+PPHT allows us to find segments by including an additional process where lines can be extracted during the voting process by walking along connected components, instead of iterating to every possible edge pixel.
 
-- It tries to extend these lines by adding adjacent edge pixels that align with the detected line's orientatioN
+- In order to extend these lines, the algorithm adds adjacent edge pixels that align with the detected line's orientation (e.g. by using the direction of the gradient).
+- It additionally considers some hyperparameters to control the merging process, such as a minimum line length and/or a line gap that influences the line merging.
