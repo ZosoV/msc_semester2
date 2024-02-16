@@ -4,6 +4,8 @@
 - [ ] Check t-sne
 - [ ] Fourier Transformation
 - [ ] Markov Decision Process (Markov Chain)
+- [ ] Entropy, KL-Divergence and Mutual Information
+- [ ] Shannon Divergence
 
 ## More research-based
 - [ ] Check Domain Adaptation for Domain shift problems
