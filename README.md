@@ -10,7 +10,7 @@ Order by priority, we have
 - [ ] Check NLP notes -> Take the book summary and add some of your thoughs
 - [ ] Check CV notes -> Concise (only the important stuff)
 - [ ] Review t-sne https://towardsdatascience.com/t-sne-clearly-explained-d84c537f53a
--
+- [ ] Normalised cross-correlation For a note in week 03.2 
 
 ## Natural Language Processing
 1. Week 01: [Regex and ELIZA](nlp/001_nlp_regex.md) | [Words, Corpora, and Text Normalization](nlp/002_nlp_text_normalization.md) | [Byte Pair Encoding and Edit Distance](nlp/003_nlp_byte_pair_edit_distance.md)
