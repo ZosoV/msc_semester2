@@ -19,7 +19,7 @@ by any kind of sequence architecture.
     1. the previous hidden state, 
     2. the output generated in the previous state, (autoregressive generation step)
     3. the context $c$, which ensures the influence on the context vector (in some architectures).
-
+- In some architectures, it is common to see an encoder with stacked layers and a decoder with stacked layers and BiLSTMs architectures.
     
 $$\begin{aligned}
 \mathbf{c} & =\mathbf{h}_n^e \\
@@ -34,9 +34,12 @@ $$\hat{y}_t=\text{argmax}_{\mathrm{w} \in \mathrm{V}} P\left(w \mid y_1 \ldots y
 - We compute **the probability of sentence $y$ given input sequence $x$** as
 $$p(y \mid x)=p\left(y_1 \mid x\right) p\left(y_2 \mid y_1, x\right) p\left(y_3 \mid y_1, y_2, x\right) \ldots p\left(y_m \mid y_1, \ldots, y_{m-1}, x\right)$$
 
-**Extra takeways:**
-- A sentence separation marker is added at the end of input and output sentences.
-- **teaching trick**: consists of using the same ground truth output words that we expect to avoid large error deviations that could be propagated for generating diverse branches. 
-    - Notice: A word badly predicted in the decoder could generate completely different branches.
+**Training the Encoder-Decoder Model**
+- This model is trained end-to-end, using **teacher forcing**:
+    - During training, **teacher forcing** means that we force the system to use the ground truth target token from training as the next input, rather than rely on the (possibly erroneous) decoder output.
+        - In other words, we don't consider the autoregressive connection during training.
+        - It is because a word badly predicted in the previous step could generate completely different branches.
+    - During inference, the decoder uses its own estimated output as the input for the next step. In other words, we consider the autoregressive connection during inference.
+- Source and target strings are concatenated with a separator token. Then, starting from the separator token the autoregressive training predicts the next word.
 
-- In some architectures, it is common to see encoder with stacked layers and decoder with stacked layers and BiLSTMs architectures.
+
