@@ -17,8 +17,8 @@ This **dynamic context** is gotten by a weighted average over all the encoder hi
 $$c_i = \sum_j \alpha_{ij} h_j^e$$
 
 The normalized scores $a_{ij}$ are gotten by
-$$a_{ij} = \text{softmax}(\text{score}(h_{j-1}^d,h_j^e))$$
-$$a_{ij} = \frac{\text{exp}(\text{score}(h_{i-1}^d,h_j^e))}{\sum_k \text{exp}(\text{score}(h_{i-1}^d,h_k^e))}$$
+$$\alpha_{ij} = \text{softmax}(\text{score}(h_{j-1}^d,h_j^e))$$
+$$\alpha_{ij} = \frac{\text{exp}(\text{score}(h_{i-1}^d,h_j^e))}{\sum_k \text{exp}(\text{score}(h_{i-1}^d,h_k^e))}$$
 
 And the scores are gotten by simple dot-product. For that reason, this attention mechanism is called **dot-product attention**.
 - Notice the score captures the similarity between the hidden states from the encoder and decoder and consequently gives a notion of relevance.
