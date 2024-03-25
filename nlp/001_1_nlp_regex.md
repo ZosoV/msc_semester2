@@ -55,10 +55,10 @@ It's important also to notice what we understand by **string**. In general, you 
 8. **Lookahead Assertions**: 
    - Lookahead assertions are powerful tools in regex that allow for conditional matching
      - `(?= pattern)` checks to see if the given pattern exists after the current point in the string.
-     - `(?= pattern)` checks to see if the given pattern doesn't exist after the current point in the string.
+     - `(?! pattern)` checks to see if the given pattern doesn't exist after the current point in the string.
      - In both cases, the regex engine **looks ahead** for the specified pattern, but the text matched by the lookahead is not included in the overall match. For that reason, we say it has **zero-width**.
    - Example: `ˆ(?!Volcano)[A-Za-z]+` matches any word at the start of a line that doesn’t start with "Volcano".
-   - Example 2: The regex `q(?=u)` will match the letter 'q' only if it is immediately followed by the letter 'u'. In the string "quiet", it matches the 'q', but does not include the 'u' in the match. So, the overall match is just 'q'. Notice, it will not match the 'q' in the word 'Iraq'.
+   - Example 2: The regex `q(?=u)` will match the letter 'q' only if it is immediately followed by the letter 'u'. In the string "quiet", it matches the 'q', but does not include the 'u' in the match. So, the overall match is just 'q'. Notice, that it will not match the 'q' in the word 'Iraq'.
 
 9. **Operator Precedence Hierachy**
    - In regular expression, one operator may take precedence over another. The following table depicts this order from higher to lowest precedence:
