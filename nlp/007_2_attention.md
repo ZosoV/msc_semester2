@@ -1,8 +1,8 @@
 # Week 07.2: Attention
 
 - In normal encoder-decoder models, the final hidden state of the encoder is used as a **static** context.
-    - This final hidden state is acting as a **bottleneck**: it must represent **absolutely everything** about the meaning of the source text.
-- The attention mechanism allows the decoder to get information from all the hidden states of the encoder, not just the last hidden state.
+    - The issue is that this final hidden state is acting as a **bottleneck**: it must represent **absolutely everything** about the meaning of the source text.
+- The attention mechanism allows the decoder to get information from all the hidden states of the encoder, **not just the last hidden state**.
     - It provides a way to disentangle the compacted information because all the information is not necessarily useful for the current i-th step on the decoder.
     - It would create a **dynamic** context for each step $i$ of the decoder based on all the hidden states of the encoder.
         $$c_i = f(h_1^e \cdots h_n^e)$$
@@ -34,6 +34,7 @@ And the scores are gotten by simple dot-product. For that reason, this attention
 - In other architectures, attention can be also **learned via a simple FFN** (Check image slides)
 
 - Linear weights are interpretable in some way, but sometimes it's not enough.
-    - We can see in an attention matrix, which word is more important.
+    - We can see in an attention matrix, which word is more important for the current time step generation.
     - We can use it for explainability but only until a certain point. It's not enough.
 
+## Pop Quizes

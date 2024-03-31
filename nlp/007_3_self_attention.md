@@ -4,7 +4,8 @@
 
 Self-attention is a way to compute representations of a word at a given layer by integrating information from words at the previous layer (it is the context).
 
-- Core Intuition: Comparing an item of interest to a collection of other items in a way that reveals their relevance in the current context
+- Core Intuition: Comparing an item of interest to a collection of other items in a way that reveals their relevance in the current context.
+- It applies the same approach as attention in encoder-decoder, but **on itself**.
 
 In contrast to **dot-product attention**, self-attention includes three different roles based on learned parameters.
 1. **query** is the current focus of attention (the current analyzed word/token)
@@ -30,14 +31,14 @@ $$\text{score}(x_i,x_j) = q_i \cdot k_j$$
 - Notice the normalization step provides a probability distribution.
 
 Then, the normalized scores are gotten as before with softmax.
-$$\alpha_{ij} = \text{softmax}(\text{score}(h_{j-1}^d,h_j^e))$$
+$$\alpha_{ij} = \text{softmax}(\text{score}(x_i,x_j))$$
 
 And the output $a_i$
 
 $$a_i = \sum_j \alpha_{ij} v_j^e$$
 
-- Notice here the value $v_j$ works as the hidden state in RNN. It would in some way encode the information from the previous step which is relevant to the current focus of attention.
-- Notice the attention will be highest to the current focus, but also will pay more attention to others.
+- Notice here the value $v_j$ works as the hidden state in RNN. It would in some way encode (refine) the information from the previous step which is relevant to the current focus of attention.
+- Notice the attention will be the highest to the current focus, but also will pay more attention to others.
 
 - To avoid numerical issues a dividing factor $\sqrt{d_k}$ is added to the dot product related to the size of the embeddings
 
@@ -51,7 +52,9 @@ $$\begin{aligned}
 \end{aligned}$$
 
 
-# Independence and Two Types of Self-Attention
+
+
+## Independence and Two Types of Self-Attention
 
 - There are two ways to build transformer systems:
 
@@ -63,3 +66,15 @@ $$\begin{aligned}
 - The computation performed for each item is **independent** of all the other computations.
     - Then, it can be easily parallelized both forward inference and training.
     - It's a contrastive difference with RNN, which has to compute all input sequentially.
+
+## Pop Up Quizes
+
+1. How did ELMO embeddings work?
+
+2. How does attention improve over that?
+
+3. Can a transformer model process infinite input? No, the transformer has a fixed length and is limited to that length (the context length).
+
+4. Can an RNN be (natively) parallelized? No, the RNN has to process the samples sequentially during training. It is always required the previous step to process the next step.
+
+5. What is the most similar token to the token $x_i$ in a self-attention layer? The $x_i$ itself is the most similar token.

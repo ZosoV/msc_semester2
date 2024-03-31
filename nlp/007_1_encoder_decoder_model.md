@@ -9,15 +9,16 @@
 1. An **encoder** that accepts an input sequence, $x_{1:n}$, and generates a corresponding sequence of contextualized representations, $h_{1:n}$. LSTMs, convolutional networks, and transformers can all be employed as encoders.
 2. A **context vector**, $c$, which is a function of $h_{1:n}$ and conveys the essence of the input to the decoder.
 3. A **decoder**, which accepts $c$ as input and generates an arbitrary length sequence of hidden states $h_{1:m}$, from which a corresponding sequence of output
-states $y_{1:m}$, can be obtained. Just as with encoders, decoders can be realized
-by any kind of sequence architecture.
+states $y_{1:m}$, can be obtained. Just as with encoders, decoders can employ any kind of sequence architecture.
 
 ## Encoder-Decoder Model with RNN
 - The encoder will generate a contextualized representation, which is the final hidden state $h_n^e$.
+    - Notice a training sample for this model is built using two sentences separated by a separator [SEP] token. For example, a sample for translating english to spanish
+        - sentence in english [SEP] oracion en ingles
     - The hidden state at the separator will contain all the information about the first sentence
     - Notice that the decoder init with the separator as input on the first step.
 - This representation works as the context $c$ for the decoder network $h_0^d = c$,  and it's **available to each decoder's hidden state** (check picture).
-    - Notice the more basic representation doesn't consider this context.
+    - Notice the more basic representation doesn't forward the context to each hidden state.
 - In the decoder, each hidden state is conditioned on
     1. the previous hidden state, 
     2. the output generated in the previous state, (autoregressive generation step)
@@ -37,6 +38,10 @@ $$\hat{y}_t=\text{argmax}_{\mathrm{w} \in \mathrm{V}} P\left(w \mid y_1 \ldots y
 - We compute **the probability of sentence $y$ given input sequence $x$** as
 $$p(y \mid x)=p\left(y_1 \mid x\right) p\left(y_2 \mid y_1, x\right) p\left(y_3 \mid y_1, y_2, x\right) \ldots p\left(y_m \mid y_1, \ldots, y_{m-1}, x\right)$$
 
+![alt text](assets/encoder_decoder.png)
+
+- Notice the decoder is a standard RNN and the decoder is a generative model architecture that uses the previous output.
+
 ## Training the Encoder-Decoder Model
 - Source and target strings are concatenated with a separator token. Then, **starting from the separator token** the autoregressive training predicts the next word.
 
@@ -44,11 +49,12 @@ $$p(y \mid x)=p\left(y_1 \mid x\right) p\left(y_2 \mid y_1, x\right) p\left(y_3 
     - During training, **teacher forcing** means that we force the system to use the ground truth target token from training as the next input, rather than rely on the (possibly erroneous) decoder output.
         - In other words, we don't consider the autoregressive connection during training.
         - It is because a word badly predicted in the previous step could generate completely different branches.
-    - During inference, the decoder uses its own estimated output as the input for the next step. In other words, we consider the autoregressive connection during inference.
-
+    - Nonetheless, during inference, the decoder uses its own estimated output as the input for the next step. In other words, we consider the autoregressive connection during inference.
+- The total loss is the average cross-entropy loss per target word (only the second sentence).
+    - In other words, only the decoder outputs are used to calculate the loss.
 ### Across Modalities
 
-Encoder-decode models allow to bridge the gap between modalities.
+Encoder-decoder models allow us to bridge the gap between modalities.
 
 - The encoder and decoder are connected via the context, but the encoder and decoder can be different types of model.
     - The modalities don't have to match
@@ -58,3 +64,13 @@ Encoder-decode models allow to bridge the gap between modalities.
 ### Othere Takeaways
 
 - In some architectures, it is common to see an encoder with stacked layers and a decoder with stacked layers and BiLSTMs architectures.
+
+## Pop Up Quizes
+
+1. **What is a potential problem with BASIC encoder-decoder architectures (without context sharing)?**
+
+    As the decoder has to update that hidden state representation that receives as input, it could start forgetting (overwriting) relevant information. The solution is to share the context in each time step to the hidden state in the decoder. In such a way, the network takes into account in each time step three things: the context, the hidden state information, and the previous output.
+
+2. **What is the purpose of the encoder?**
+    
+    It is to generate a contextualized representation, which is the final hidden state $h_n^e$. This contextualized representation should in theory contain all the relevant information to generate text in the consecutive decoder step.
