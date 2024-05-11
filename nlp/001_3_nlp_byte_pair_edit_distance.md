@@ -39,7 +39,7 @@ Words
 1. Look for every pair of characters in each word, count, and get the total frequency (consider the word frequency).
 2. Get the pair with the highest frequency (charL, charR)
 3. The pair with the highest frequency is added to the vocabulary as a single char (NOTE: there can be some ties)
-4. Replace each occurrence of (charL, charR) in the words, in other words, grouped together as a single char.
+4. Replace each occurrence of (charL, charR) in other words by grouping together as a single char.
 
 **NOTE**: The previous part corresponds to the token learner. The token segmenter will take similar steps to the learner. It will loop by merging pairs of chars, but instead of changing the vocabulary it will find matches with the vocabulary (in the order that we learned during training).
 
@@ -47,7 +47,7 @@ Words
 
 The minimum edit distance corresponds to the minimum number of operations (deletion, insertion and substitution) required to change one word into another.
 
-- It is used in NLP for tasks like spell checking, speech recognition, and machine translation to find the closet words(s) to a given input.
+- It is used in NLP for tasks like spell checking, speech recognition, and machine translation to find the closest words(s) to a given input.
 
 - The minimum edit distance helps us to understand how similar two strings are.
 
