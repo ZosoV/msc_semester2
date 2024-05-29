@@ -7,6 +7,7 @@
 - [ ] Entropy, KL-Divergence and Mutual Information
 - [ ] Shannon Divergence
 - [ ] UMAP algorithm
+- [ ] SMOTE
 
 ## More research-based
 - [ ] Check Domain Adaptation for Domain shift problems
